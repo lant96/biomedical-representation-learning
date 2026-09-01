@@ -1,0 +1,72 @@
+{
+  "n_samples": 330,
+  "n_probes": 31266,
+  "n_subjects": 218,
+  "n_sle_samples": 307,
+  "n_control_samples": 23,
+  "n_sle_subjects": 196,
+  "n_control_subjects": 22,
+  "samples_per_subject": {
+    "1": 111,
+    "2": 102,
+    "3": 5
+  },
+  "class_ratio": 13.35,
+  "batch": {
+    "n_chips": 28,
+    "n_chips_with_control": 23,
+    "max_controls_on_one_chip": 1,
+    "chips_are_mixed": true
+  },
+  "pc_variance_ratio": [
+    0.23735,
+    0.11538,
+    0.06103,
+    0.04644,
+    0.0436,
+    0.03758,
+    0.03143,
+    0.02644,
+    0.02352,
+    0.01867
+  ],
+  "pc_vs_chip_eta_squared": {
+    "PC1": 0.0622,
+    "PC2": 0.1288,
+    "PC3": 0.1215,
+    "PC4": 0.1169,
+    "PC5": 0.0806
+  },
+  "top_variable_genes": [
+    "HLA-DRB5",
+    "HLA-DRB1",
+    "IFI27",
+    "IFI44L",
+    "RSAD2",
+    "HBG2",
+    "HBG1",
+    "TUBB2A",
+    "FCGR2A",
+    "IFIT1",
+    "ALAS2",
+    "HLA-DRB6",
+    "MYOM2",
+    "IFITM3",
+    "KRT1",
+    "HES4",
+    "HBA2",
+    "DEFA1B",
+    "OASL",
+    "HBA2",
+    "RPS4Y1",
+    "ARG1",
+    "JCHAIN",
+    "CA1",
+    "OAS1"
+  ],
+  "subject_grouping_leak_auc": 0.0023,
+  "grouped_cv_auc_range": [
+    0.823,
+    1.0
+  ]
+}

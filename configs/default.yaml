@@ -1,0 +1,54 @@
+# Default experiment configuration for GSE138458.
+# Values here are the ones used for every reported result; override on the
+# command line rather than editing in place, so runs stay traceable.
+
+seed: 42
+
+data:
+  accession: GSE138458
+  platform: GPL10558
+  # Keep only probes that map to a named gene. This reads the platform
+  # annotation, not the expression values, so it cannot leak label information.
+  annotated_only: true
+
+split:
+  # Grouped on subject_id, because 330 samples come from only 218 subjects.
+  # Ungrouped splitting would put two visits from one patient either side of the
+  # train/test boundary.
+  group_column: subject_id
+  stratify_column: case_control
+  n_splits: 5
+  # With 22 control subjects a single 5-fold run leaves 4-5 controls per fold,
+  # so headline numbers are averaged over repeats.
+  n_repeats: 5
+
+features:
+  # Supervised selection is refit inside every CV fold, never on the full matrix.
+  method: select_k_best
+  k: 2000
+
+metrics:
+  # Plain accuracy is meaningless at a 13:1 class ratio.
+  primary: roc_auc
+  report:
+    - roc_auc
+    - average_precision
+    - balanced_accuracy
+    - f1
+
+autoencoder:
+  # Input space is features.k above (build_feature_pipeline), so the AE and
+  # the classical baselines see identical features. Train/val split reuses
+  # split.n_splits (an 80/20 grouped, stratified holdout) — early stopping
+  # needs one held-out set, not repeated CV.
+  latent_dim: 32
+  hidden_dims: [256, 64]
+  dropout: 0.2
+  weight_decay: 0.0001
+  learning_rate: 0.001
+  batch_size: 32
+  max_epochs: 300
+  # Stop once validation reconstruction loss goes `patience` epochs without
+  # improving by at least `min_delta`.
+  patience: 20
+  min_delta: 0.0001

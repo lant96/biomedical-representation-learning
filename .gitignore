@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Environment
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Data - downloaded from GEO, reproducible via scripts/download_data.py
+data/raw/
+data/processed/
+
+# Notebook cruft
+.ipynb_checkpoints/
+
+# Trained model weights - reproducible via scripts/train_ae.py
+results/*.pt
