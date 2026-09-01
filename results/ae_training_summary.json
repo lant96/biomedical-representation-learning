@@ -1,0 +1,28 @@
+{
+  "hyperparameters": {
+    "k": 2000,
+    "latent_dim": 32,
+    "hidden_dims": [
+      256,
+      64
+    ],
+    "dropout": 0.2,
+    "weight_decay": 0.0001,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "max_epochs": 300,
+    "patience": 20,
+    "min_delta": 0.0001,
+    "n_splits": 5,
+    "seed": 42
+  },
+  "n_epochs_run": 119,
+  "best_epoch": 98,
+  "best_val_loss": 0.634831428527832,
+  "final_train_loss": 0.5346911892746434,
+  "final_val_loss": 0.6402645111083984,
+  "n_train_samples": 264,
+  "n_val_samples": 66,
+  "n_train_subjects": 175,
+  "n_val_subjects": 43
+}
