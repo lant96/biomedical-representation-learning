@@ -1,0 +1,278 @@
+{
+  "silhouette": {
+    "all_31266_genes": -0.011071684770286083,
+    "2000_selected_genes_uncompressed": 0.1961466521024704,
+    "ae_latent_32dim": 0.3165331184864044
+  },
+  "pca_variance_ratio": {
+    "all_31266_genes": [
+      0.2374,
+      0.1154,
+      0.061,
+      0.0464,
+      0.0436
+    ],
+    "2000_selected_genes_uncompressed": [
+      0.281,
+      0.0443,
+      0.0356,
+      0.0247,
+      0.0193
+    ],
+    "ae_latent_32dim": [
+      0.3541,
+      0.1479,
+      0.1379,
+      0.1007,
+      0.0812
+    ]
+  },
+  "probe_vs_classical_baselines": {
+    "logreg_l2": {
+      "roc_auc_mean": 0.9697,
+      "roc_auc_std": 0.0605,
+      "pr_auc_mean": 0.9966,
+      "pr_auc_std": 0.0073,
+      "f1_mean": 0.9189,
+      "f1_std": 0.0397,
+      "balanced_accuracy_mean": 0.9046,
+      "balanced_accuracy_std": 0.0496
+    },
+    "xgboost": {
+      "roc_auc_mean": 0.9678,
+      "roc_auc_std": 0.062,
+      "pr_auc_mean": 0.9961,
+      "pr_auc_std": 0.0092,
+      "f1_mean": 0.9873,
+      "f1_std": 0.0083,
+      "balanced_accuracy_mean": 0.9085,
+      "balanced_accuracy_std": 0.0941
+    },
+    "ae_latent_probe": {
+      "roc_auc_mean": 0.9612,
+      "roc_auc_std": 0.0371,
+      "pr_auc_mean": 0.9971,
+      "pr_auc_std": 0.0027,
+      "f1_mean": 0.9618,
+      "f1_std": 0.0241,
+      "balanced_accuracy_mean": 0.874,
+      "balanced_accuracy_std": 0.0992
+    },
+    "logreg_elasticnet": {
+      "roc_auc_mean": 0.9577,
+      "roc_auc_std": 0.0842,
+      "pr_auc_mean": 0.9935,
+      "pr_auc_std": 0.0132,
+      "f1_mean": 0.8971,
+      "f1_std": 0.0255,
+      "balanced_accuracy_mean": 0.8855,
+      "balanced_accuracy_std": 0.0536
+    },
+    "logreg_l1": {
+      "roc_auc_mean": 0.9577,
+      "roc_auc_std": 0.0846,
+      "pr_auc_mean": 0.9933,
+      "pr_auc_std": 0.0136,
+      "f1_mean": 0.9641,
+      "f1_std": 0.0165,
+      "balanced_accuracy_mean": 0.9441,
+      "balanced_accuracy_std": 0.0438
+    },
+    "random_forest": {
+      "roc_auc_mean": 0.9426,
+      "roc_auc_std": 0.0869,
+      "pr_auc_mean": 0.9906,
+      "pr_auc_std": 0.0169,
+      "f1_mean": 0.9789,
+      "f1_std": 0.0117,
+      "balanced_accuracy_mean": 0.907,
+      "balanced_accuracy_std": 0.0819
+    }
+  },
+  "probe_robustness_check": {
+    "note": "The pooled CV above re-splits all 330 samples per fold, without regard to which 264 the AE itself trained on. This restricts training/evaluation to the AE's own train/val split for comparison; see the markdown cells above for the caveats on reading this number as more than a robustness check.",
+    "n_val_samples": 66,
+    "n_val_control_samples": 4,
+    "n_val_control_subjects": 3,
+    "roc_auc_restricted_to_ae_val_only": 0.9355,
+    "balanced_accuracy_restricted_to_ae_val_only": 0.7258,
+    "pooled_cv_roc_auc_mean": 0.9612
+  },
+  "top_disease_associated_latent_dim": "z2",
+  "top_latent_dim_coefficients": [
+    {
+      "dim": "z2",
+      "coef": 1.2340450286865234,
+      "abs_coef": 1.2340450286865234
+    },
+    {
+      "dim": "z30",
+      "coef": 1.1315796375274658,
+      "abs_coef": 1.1315796375274658
+    },
+    {
+      "dim": "z5",
+      "coef": -0.9560704827308655,
+      "abs_coef": 0.9560704827308655
+    },
+    {
+      "dim": "z20",
+      "coef": 0.7912839651107788,
+      "abs_coef": 0.7912839651107788
+    },
+    {
+      "dim": "z29",
+      "coef": 0.7701660990715027,
+      "abs_coef": 0.7701660990715027
+    },
+    {
+      "dim": "z21",
+      "coef": -0.7420167326927185,
+      "abs_coef": 0.7420167326927185
+    },
+    {
+      "dim": "z4",
+      "coef": -0.6558841466903687,
+      "abs_coef": 0.6558841466903687
+    },
+    {
+      "dim": "z25",
+      "coef": 0.6464794278144836,
+      "abs_coef": 0.6464794278144836
+    },
+    {
+      "dim": "z28",
+      "coef": 0.590696394443512,
+      "abs_coef": 0.590696394443512
+    },
+    {
+      "dim": "z17",
+      "coef": 0.5612298846244812,
+      "abs_coef": 0.5612298846244812
+    }
+  ],
+  "genes_correlated_with_top_latent_dim": [
+    {
+      "probe_id": "ILMN_2141444",
+      "correlation": -0.5216616541343567,
+      "abs_correlation": 0.5216616541343567,
+      "gene_symbol": "RPL18A"
+    },
+    {
+      "probe_id": "ILMN_2050434",
+      "correlation": -0.5205271033339269,
+      "abs_correlation": 0.5205271033339269,
+      "gene_symbol": "TUBA3FP"
+    },
+    {
+      "probe_id": "ILMN_2326071",
+      "correlation": -0.5196500508896764,
+      "abs_correlation": 0.5196500508896764,
+      "gene_symbol": "MYL6"
+    },
+    {
+      "probe_id": "ILMN_3235632",
+      "correlation": -0.5108939881661777,
+      "abs_correlation": 0.5108939881661777,
+      "gene_symbol": "ANXA2P2"
+    },
+    {
+      "probe_id": "ILMN_1773080",
+      "correlation": -0.5094056014421712,
+      "abs_correlation": 0.5094056014421712,
+      "gene_symbol": "OAZ1"
+    },
+    {
+      "probe_id": "ILMN_2160819",
+      "correlation": -0.5087407817071293,
+      "abs_correlation": 0.5087407817071293,
+      "gene_symbol": "RPS27"
+    },
+    {
+      "probe_id": "ILMN_2141453",
+      "correlation": -0.5023480951304146,
+      "abs_correlation": 0.5023480951304146,
+      "gene_symbol": "RPL18A"
+    },
+    {
+      "probe_id": "ILMN_2376205",
+      "correlation": -0.4974768882013396,
+      "abs_correlation": 0.4974768882013396,
+      "gene_symbol": "LTB"
+    },
+    {
+      "probe_id": "ILMN_2215061",
+      "correlation": -0.48980519446427806,
+      "abs_correlation": 0.48980519446427806,
+      "gene_symbol": "ORC6"
+    },
+    {
+      "probe_id": "ILMN_2331890",
+      "correlation": -0.4879736430710601,
+      "abs_correlation": 0.4879736430710601,
+      "gene_symbol": "RPL41"
+    },
+    {
+      "probe_id": "ILMN_2114876",
+      "correlation": -0.47879383463961045,
+      "abs_correlation": 0.47879383463961045,
+      "gene_symbol": "RPL11"
+    },
+    {
+      "probe_id": "ILMN_2148290",
+      "correlation": -0.4645720073353574,
+      "abs_correlation": 0.4645720073353574,
+      "gene_symbol": "PDCD7"
+    },
+    {
+      "probe_id": "ILMN_2054928",
+      "correlation": -0.46308734360753917,
+      "abs_correlation": 0.46308734360753917,
+      "gene_symbol": "XPNPEP3"
+    },
+    {
+      "probe_id": "ILMN_2087060",
+      "correlation": -0.45860169254478267,
+      "abs_correlation": 0.45860169254478267,
+      "gene_symbol": "TOMM7"
+    },
+    {
+      "probe_id": "ILMN_2406132",
+      "correlation": -0.45562482191926734,
+      "abs_correlation": 0.45562482191926734,
+      "gene_symbol": "LILRB3"
+    },
+    {
+      "probe_id": "ILMN_2318725",
+      "correlation": -0.44745368039946587,
+      "abs_correlation": 0.44745368039946587,
+      "gene_symbol": "EEF1B2"
+    },
+    {
+      "probe_id": "ILMN_2161007",
+      "correlation": -0.4465478200337042,
+      "abs_correlation": 0.4465478200337042,
+      "gene_symbol": "GABPB2"
+    },
+    {
+      "probe_id": "ILMN_2297069",
+      "correlation": -0.4455056295144037,
+      "abs_correlation": 0.4455056295144037,
+      "gene_symbol": "TCAF1"
+    },
+    {
+      "probe_id": "ILMN_2180519",
+      "correlation": -0.42988107794280156,
+      "abs_correlation": 0.42988107794280156,
+      "gene_symbol": "LOC729603"
+    },
+    {
+      "probe_id": "ILMN_2397484",
+      "correlation": -0.42241183130630794,
+      "abs_correlation": 0.42241183130630794,
+      "gene_symbol": "GJC1"
+    }
+  ],
+  "overlap_with_day1_top_variance_genes": [],
+  "overlap_with_day2_top_shap_genes": []
+}
