@@ -1,7 +1,7 @@
 # Biomedical Representation Learning
 
-**What do learned representations of gene expression capture that simpler, interpretable
-representations do not?**
+> What do learned representations of gene expression capture that simpler, interpretable
+> representations do not?
 
 This project compares an unsupervised autoencoder's latent space against regularized linear
 models and gradient boosting with SHAP attributions, on whole-blood gene expression from
@@ -9,6 +9,7 @@ patients with systemic lupus erythematosus (SLE). The question isn't which model
 `n << p` biomedical data, regularized linear models often match neural networks — but whether
 different modeling families find *the same structure*.
 
+> **Status:** V1 complete. 129 tests, 100% coverage of `src/`, MIT licensed.
 
 ## Dataset
 
@@ -21,6 +22,11 @@ expression from an adult SLE cohort, single platform (GPL10558, Illumina HumanHT
 | SLE | 307 samples / 196 subjects |
 | Healthy control | 23 samples / 22 subjects |
 | Probes | 47,323 (31,266 named genes) |
+
+![Raw PCA, feature-selected, and autoencoder latent space compared, plus a UMAP view of the latent space](figures/latent_space_comparison.png)
+*The autoencoder's 32-dim latent space (right) separates SLE from control more clearly than the
+same genes uncompressed (center) or raw expression (left) — see [Key findings](#key-findings) for
+what this does and doesn't establish.*
 
 ## Key findings
 
@@ -37,7 +43,7 @@ expression from an adult SLE cohort, single platform (GPL10558, Illumina HumanHT
   ceiling** — on data this collinear, strong performance is compatible with real ambiguity about
   which genes are "responsible."
 
-Full walkthrough, numbers, and caveats: **[FINDINGS.md](FINDINGS.md)**
+Full walkthrough, numbers, figures, and caveats: **[FINDINGS.md](FINDINGS.md)**
 
 ## Reproducing
 
@@ -84,3 +90,11 @@ figures/ results/   generated outputs
 ## License
 
 [MIT](LICENSE)
+
+## Author
+
+Athanasia Lantouri
+
+Applied Machine Learning | Interpretable AI | Biomedical Data Science
+
+GitHub: <https://github.com/lant96>
