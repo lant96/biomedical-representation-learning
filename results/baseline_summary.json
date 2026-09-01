@@ -1,0 +1,183 @@
+{
+  "config": {
+    "k": 2000,
+    "n_splits": 5,
+    "n_repeats": 5
+  },
+  "cv_summary": {
+    "logreg_l2": {
+      "roc_auc_mean": 0.9697,
+      "roc_auc_std": 0.0605,
+      "pr_auc_mean": 0.9966,
+      "pr_auc_std": 0.0073,
+      "f1_mean": 0.9189,
+      "f1_std": 0.0397,
+      "balanced_accuracy_mean": 0.9046,
+      "balanced_accuracy_std": 0.0496
+    },
+    "xgboost": {
+      "roc_auc_mean": 0.9678,
+      "roc_auc_std": 0.062,
+      "pr_auc_mean": 0.9961,
+      "pr_auc_std": 0.0092,
+      "f1_mean": 0.9873,
+      "f1_std": 0.0083,
+      "balanced_accuracy_mean": 0.9085,
+      "balanced_accuracy_std": 0.0941
+    },
+    "logreg_elasticnet": {
+      "roc_auc_mean": 0.9577,
+      "roc_auc_std": 0.0842,
+      "pr_auc_mean": 0.9935,
+      "pr_auc_std": 0.0132,
+      "f1_mean": 0.8971,
+      "f1_std": 0.0255,
+      "balanced_accuracy_mean": 0.8855,
+      "balanced_accuracy_std": 0.0536
+    },
+    "logreg_l1": {
+      "roc_auc_mean": 0.9577,
+      "roc_auc_std": 0.0846,
+      "pr_auc_mean": 0.9933,
+      "pr_auc_std": 0.0136,
+      "f1_mean": 0.9641,
+      "f1_std": 0.0165,
+      "balanced_accuracy_mean": 0.9441,
+      "balanced_accuracy_std": 0.0438
+    },
+    "random_forest": {
+      "roc_auc_mean": 0.9426,
+      "roc_auc_std": 0.0869,
+      "pr_auc_mean": 0.9906,
+      "pr_auc_std": 0.0169,
+      "f1_mean": 0.9789,
+      "f1_std": 0.0117,
+      "balanced_accuracy_mean": 0.907,
+      "balanced_accuracy_std": 0.0819
+    }
+  },
+  "best_model": "logreg_l2",
+  "top_shap_genes": [
+    {
+      "probe_id": "ILMN_1656134",
+      "mean_abs_shap": 0.16441158950328827,
+      "mean_signed_shap": 0.037801556289196014,
+      "gene_symbol": "CNOT7"
+    },
+    {
+      "probe_id": "ILMN_2407124",
+      "mean_abs_shap": 0.16090363264083862,
+      "mean_signed_shap": -0.024674689397215843,
+      "gene_symbol": "MCM8"
+    },
+    {
+      "probe_id": "ILMN_1703573",
+      "mean_abs_shap": 0.11830885708332062,
+      "mean_signed_shap": 0.023828238248825073,
+      "gene_symbol": "DNAJC17"
+    },
+    {
+      "probe_id": "ILMN_1778951",
+      "mean_abs_shap": 0.11812277883291245,
+      "mean_signed_shap": -0.00712592015042901,
+      "gene_symbol": "C6orf203"
+    },
+    {
+      "probe_id": "ILMN_1675429",
+      "mean_abs_shap": 0.10577810555696487,
+      "mean_signed_shap": -0.01528999675065279,
+      "gene_symbol": "SMURF2"
+    },
+    {
+      "probe_id": "ILMN_1807611",
+      "mean_abs_shap": 0.10090113431215286,
+      "mean_signed_shap": 0.002885711146518588,
+      "gene_symbol": "PPIG"
+    },
+    {
+      "probe_id": "ILMN_1695947",
+      "mean_abs_shap": 0.09435722231864929,
+      "mean_signed_shap": -0.007197576574981213,
+      "gene_symbol": "SCN4B"
+    },
+    {
+      "probe_id": "ILMN_1798880",
+      "mean_abs_shap": 0.0906471461057663,
+      "mean_signed_shap": -0.004003862384706736,
+      "gene_symbol": "RPA4"
+    },
+    {
+      "probe_id": "ILMN_1682775",
+      "mean_abs_shap": 0.08891665190458298,
+      "mean_signed_shap": -0.02450421452522278,
+      "gene_symbol": "EDN1"
+    },
+    {
+      "probe_id": "ILMN_1671221",
+      "mean_abs_shap": 0.08766251802444458,
+      "mean_signed_shap": -0.018930822610855103,
+      "gene_symbol": "GAPVD1"
+    },
+    {
+      "probe_id": "ILMN_1680353",
+      "mean_abs_shap": 0.0836656391620636,
+      "mean_signed_shap": -0.004035708028823137,
+      "gene_symbol": "NSF"
+    },
+    {
+      "probe_id": "ILMN_1811972",
+      "mean_abs_shap": 0.08317266404628754,
+      "mean_signed_shap": -0.00582124711945653,
+      "gene_symbol": "MYCBP2"
+    },
+    {
+      "probe_id": "ILMN_1781097",
+      "mean_abs_shap": 0.07942218333482742,
+      "mean_signed_shap": -0.009175509214401245,
+      "gene_symbol": "UBXN4"
+    },
+    {
+      "probe_id": "ILMN_1726786",
+      "mean_abs_shap": 0.07933995127677917,
+      "mean_signed_shap": 0.0112146632745862,
+      "gene_symbol": "TNRC6B"
+    },
+    {
+      "probe_id": "ILMN_1696587",
+      "mean_abs_shap": 0.07571709901094437,
+      "mean_signed_shap": -0.0072556608356535435,
+      "gene_symbol": "LRP1B"
+    },
+    {
+      "probe_id": "ILMN_1908918",
+      "mean_abs_shap": 0.07533398270606995,
+      "mean_signed_shap": -0.029686175286769867,
+      "gene_symbol": "SDIM1"
+    },
+    {
+      "probe_id": "ILMN_1747556",
+      "mean_abs_shap": 0.07408566027879715,
+      "mean_signed_shap": 0.00723263481631875,
+      "gene_symbol": "CDK9"
+    },
+    {
+      "probe_id": "ILMN_2363744",
+      "mean_abs_shap": 0.07357905805110931,
+      "mean_signed_shap": -0.03634103387594223,
+      "gene_symbol": "PACRG"
+    },
+    {
+      "probe_id": "ILMN_1657486",
+      "mean_abs_shap": 0.0724475160241127,
+      "mean_signed_shap": 0.0018165280343964696,
+      "gene_symbol": "OR2AG2"
+    },
+    {
+      "probe_id": "ILMN_1707005",
+      "mean_abs_shap": 0.07020067423582077,
+      "mean_signed_shap": 0.016768280416727066,
+      "gene_symbol": "TCF7"
+    }
+  ],
+  "overlap_with_day1_top_variance_genes": []
+}
