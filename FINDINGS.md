@@ -33,13 +33,13 @@ Details: [`notebooks/01_eda.ipynb`](notebooks/01_eda.ipynb) · `figures/pca_over
 | logreg_elasticnet | 0.958 ± 0.084 | 0.994 ± 0.013 | 0.886 ± 0.054 |
 | random_forest | 0.943 ± 0.087 | 0.991 ± 0.017 | 0.907 ± 0.082 |
 
-All five are statistically indistinguishable — the best-to-worst gap is smaller than any model's
+All five are statistically indistinguishable. The best-to-worst gap is smaller than any model's
 own fold-to-fold noise. Decision thresholds are tuned per-fold on training data only
 (`evaluation._best_threshold`), since a blind 0.5 cutoff understates every model at this
 imbalance.
 
 SHAP's top genes for the best model share zero overlap with the top-variance genes above, and
-aren't the interferon/HLA genes central to SLE biology — likely because 2000 collinear features
+aren't the interferon/HLA genes central to SLE biology, likely because 2000 collinear features
 give an L2 model many equally-good ways to reach the same accuracy, not evidence of a novel axis.
 
 Details: [`notebooks/02_baselines.ipynb`](notebooks/02_baselines.ipynb)
@@ -48,10 +48,10 @@ Details: [`notebooks/02_baselines.ipynb`](notebooks/02_baselines.ipynb)
 
 Unsupervised MLP (2000 → 256 → 64 → **32** → 64 → 256 → 2000), trained on the same selected,
 standardized features as the classical baselines, subject-grouped 80/20 split, early stopping
-(val MSE 0.635 — a 34% reduction over a trivial mean-prediction baseline).
+(val MSE 0.635, a 34% reduction over a trivial mean-prediction baseline).
 
-Controlling for the fact that its input is already label-selected (unlike Day 1's raw PCA), three
-views separate feature-selection effects from compression effects:
+Controlling for the fact that its input is already label-selected (unlike the raw
+PCA above), three views separate feature-selection effects from compression effects:
 
 | Representation | Silhouette |
 |---|---|
@@ -59,22 +59,22 @@ views separate feature-selection effects from compression effects:
 | 2000 selected genes, uncompressed | +0.196 |
 | AE's 32-dim latent (compressed from above) | **+0.317** |
 
-A linear probe on the 32-dim latent space matches the classical baselines — **ROC-AUC 0.961 ±
+A linear probe on the 32-dim latent space matches the classical baselines, **ROC-AUC 0.961 ±
 0.037**, the lowest variance of any model tested, using 1.6% of the features.
 
 **Caveat:** this figure pools all 330 samples across CV folds, including some the AE's encoder
-already saw (unlabeled) during its own training — an asymmetry the classical pipelines don't
+already saw (unlabeled) during its own training, an asymmetry the classical pipelines don't
 share, since they refit feature selection per fold. Restricted to only the AE's held-out
-subjects: ROC-AUC 0.936 (on just 4 control samples — too thin to be more authoritative than the
+subjects: ROC-AUC 0.936 (on just 4 control samples, too thin to be more authoritative than the
 pooled figure, but a real, documented effect). 0.961 remains the headline number.
 
-The genes behind the AE's separation — a coherent ribosomal/translation module (RPL18A, RPL11,
-RPS27, EEF1B2...) — overlap with neither the raw-variance genes nor the SHAP genes above. Caveat:
+The genes behind the AE's separation,a coherent ribosomal/translation module (RPL18A, RPL11,
+RPS27, EEF1B2...), overlap with neither the raw-variance genes nor the SHAP genes above. Caveat:
 this kind of module often tracks immune cell-composition shifts rather than SLE-specific biology.
 
 **Synthesis:** three methods, three non-overlapping gene sets, the same predictive ceiling. On
 data this collinear, strong performance is compatible with genuine ambiguity about which genes
-are responsible — a different representation can match performance through a completely
+are responsible, a different representation can match performance through a completely
 different route.
 
 Details: [`notebooks/04_representation_comparison.ipynb`](notebooks/04_representation_comparison.ipynb) · `figures/latent_space_comparison.png`
@@ -95,5 +95,5 @@ Details: [`notebooks/04_representation_comparison.ipynb`](notebooks/04_represent
 
 A coverage audit (100% of `src/`, 129 tests) surfaced and fixed two real bugs (a SHAP fallback
 path using a removed API, a batch-correlation function raising on single-sample groups), and a
-reproducibility check in a clean environment caught a silent Jupyter kernel fallback — both
+reproducibility check in a clean environment caught a silent Jupyter kernel fallback, both
 documented in commit history.
